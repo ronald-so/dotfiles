@@ -15,3 +15,9 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
+if vim.g.vscode then
+	local vscode = require('vscode-neovim')
+	vim.keymap.set("n", "gr", function()
+		vscode.action("references-view.findReferences")
+	end)
+end
