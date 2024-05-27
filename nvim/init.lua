@@ -20,6 +20,8 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
+vim.keymap.set('n', '<leader>e', '<Cmd>Neotree toggle<CR>', {silent = true})
+
 vim.opt.clipboard = "unnamedplus"
 vim.opt.relativenumber = true
 vim.opt.number = true
@@ -30,6 +32,7 @@ vim.opt.autoindent = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.backspace = "indent,eol,start"
-vim.o.termguicolors = true
+vim.opt.termguicolors = true
 
 vim.cmd.colorscheme "nightfly"
+
