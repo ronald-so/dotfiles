@@ -30,3 +30,6 @@ vim.opt.autoindent = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.backspace = "indent,eol,start"
+vim.o.termguicolors = true
+
+vim.cmd.colorscheme "nightfly"
