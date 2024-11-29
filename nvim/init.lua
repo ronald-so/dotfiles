@@ -19,4 +19,4 @@ vim.o.swapfile = false
 vim.o.backup = false
 
 -- Colorscheme
-vim.cmd.colorscheme("nightfox")
+vim.cmd.colorscheme("kanagawa")
