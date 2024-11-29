@@ -1,8 +1,0 @@
-return {
-    'freddiehaddad/feline.nvim',
-    opts = {},
-    dependencies = {
-      'nvim-tree/nvim-web-devicons',
-      'lewis6991/gitsigns.nvim',
-  }
-}

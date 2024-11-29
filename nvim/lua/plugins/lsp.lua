@@ -73,7 +73,7 @@ return {
       end)
 
       require('mason-lspconfig').setup({
-        ensure_installed = {},
+        ensure_installed = {"lua_ls", "sorbet"},
         handlers = {
           -- this first function is the "default handler"
           -- it applies to every language server without a "custom handler"
@@ -87,6 +87,15 @@ return {
             local lua_opts = lsp_zero.nvim_lua_ls()
             require('lspconfig').lua_ls.setup(lua_opts)
           end,
+
+          -- this is the "custom handler" for `sorbet`
+          sorbet = function()
+            require('lspconfig').sorbet.setup {
+              cmd = {
+                "srb", "tc", "--lsp", "--watchman-path=/opt/homebrew/bin/watchman"
+              }
+            }
+          end
         }
       })
     end

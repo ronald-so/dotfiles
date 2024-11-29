@@ -5,14 +5,36 @@ return {
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
-		config = function () 
+		config = function()
 			local configs = require("nvim-treesitter.configs")
 
 			configs.setup({
-				ensure_installed = { "c", "lua", "vim", "vimdoc", "json", "python", "javascript", "html", "typescript", "rust" },
+				ensure_installed = {
+					"c",
+					"lua",
+					"vim",
+					"vimdoc",
+					"json",
+					"python",
+					"javascript",
+					"html",
+					"typescript",
+					"rust",
+					"ruby",
+				},
 				sync_install = true,
 				highlight = { enable = true },
-				indent = { enable = true },  
+				indent = {
+					enable = true,
+					disable = { "ruby" },
+				},
+				yati = {
+					enable = true,
+					disable = { "lua" },
+					default_lazy = false,
+					default_fallback = "auto",
+				},
+				endwise = { enable = true },
 				incremental_selection = {
 					enable = true,
 					keymaps = {
@@ -50,9 +72,9 @@ return {
 						-- and should return the mode ('v', 'V', or '<c-v>') or a table
 						-- mapping query_strings to modes.
 						selection_modes = {
-							['@parameter.outer'] = 'v', -- charwise
-							['@function.outer'] = 'V', -- linewise
-							['@class.outer'] = '<c-v>', -- blockwise
+							["@parameter.outer"] = "v", -- charwise
+							["@function.outer"] = "V", -- linewise
+							["@class.outer"] = "<c-v>", -- blockwise
 						},
 						-- If you set this to `true` (default is `false`) then any textobject is
 						-- extended to include preceding or succeeding whitespace. Succeeding
@@ -67,7 +89,20 @@ return {
 					},
 				},
 			})
-
-		end
-	}
+		end,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		config = function()
+			require("treesitter-context").setup()
+		end,
+	},
+	{
+		"RRethy/nvim-treesitter-endwise",
+		lazy = false,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		lazy = true,
+	},
 }
